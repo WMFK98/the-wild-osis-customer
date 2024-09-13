@@ -1,16 +1,7 @@
-import Image from 'next/image';
-import backgroud from '@/public/bg.png';
-export default function Home() {
+export default function Page() {
   return (
     <main className="mt-24">
-      <Image
-        fill
-        className="object-cover object-top"
-        src={backgroud}
-        alt="Mountains and forests with two cabins"
-        placeholder="blur"
-        quality={80}
-      />
+      <img src="/bg.png" alt="Mountains and forests with two cabins" />
 
       <div className="relative z-10 text-center">
         <h1 className="text-8xl text-primary-50 mb-10 tracking-tight font-normal">
