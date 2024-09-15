@@ -44,11 +44,13 @@ export default function Home() {
           placeholder="blur"
           alt="Family sitting around a fire pit in front of cabin"
           quality={80}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
 
       <div className="relative aspect-square col-span-2">
         <Image
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           quality={80}
           placeholder="blur"
           src={image2}
