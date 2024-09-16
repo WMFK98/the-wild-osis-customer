@@ -3,10 +3,12 @@ import CabinCard from '../_components/CabinCard';
 import CabinsList from '../_components/CabinsList';
 import { getCabins } from '../_lib/data-service';
 import Spinner from '../_components/Spinner';
-
+// export const revalidate = 0;
+export const revalidate = 3600;
 export const metadata = {
   title: 'Cabins',
 };
+
 export default function Cabins() {
   return (
     <div>
