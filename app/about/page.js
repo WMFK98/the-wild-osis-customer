@@ -1,8 +1,7 @@
 import image1 from '@/public/about-1.jpg';
 import image2 from '@/public/about-2.jpg';
 import Image from 'next/image';
-import NumOfCabin from './numOfCabin';
-
+import { getCabins } from '../_lib/data-service';
 export const metadata = {
   title: 'About',
 };

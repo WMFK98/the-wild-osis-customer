@@ -3,13 +3,17 @@ import CabinCard from '../_components/CabinCard';
 import CabinsList from '../_components/CabinsList';
 import { getCabins } from '../_lib/data-service';
 import Spinner from '../_components/Spinner';
+import TextExpander from '../_components/TextExpander';
+import Filter from '../_components/Filter';
 // export const revalidate = 0;
 export const revalidate = 3600;
 export const metadata = {
   title: 'Cabins',
 };
 
-export default function Cabins() {
+export default function Cabins({ searchParams }) {
+  const filter = searchParams?.capacity ?? 'all';
+  console.log(filter);
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -23,9 +27,11 @@ export default function Cabins() {
         home away from home. The perfect spot for a peaceful, calm vacation.
         Welcome to paradise.
       </p>
-
-      <Suspense fallback={<Spinner />}>
-        <CabinsList />
+      <div className="flex justify-end mb-8">
+        <Filter />
+      </div>
+      <Suspense key={filter} fallback={<Spinner />}>
+        <CabinsList filter={filter} />
       </Suspense>
     </div>
   );
