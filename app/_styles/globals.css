@@ -33,6 +33,7 @@
 /* For data picker */
 .rdp-root {
   --rdp-accent-color: indigo; /* Change the accent color to indigo. */
-  --rdp-accent-background-color: #f0f0f0; /* Change the accent background color. */
+  --rdp-accent-background-color: red; /* Change the accent background color. */
   /* Add more CSS variables here. */
+  --rdp-outline: red;
 }

@@ -5,6 +5,7 @@ import { getCabins } from '../_lib/data-service';
 import Spinner from '../_components/Spinner';
 import TextExpander from '../_components/TextExpander';
 import Filter from '../_components/Filter';
+import ReservationReminder from '../_components/ReservationReminder';
 // export const revalidate = 0;
 export const revalidate = 3600;
 export const metadata = {
@@ -13,7 +14,6 @@ export const metadata = {
 
 export default function Cabins({ searchParams }) {
   const filter = searchParams?.capacity ?? 'all';
-  console.log(filter);
   return (
     <div>
       <h1 className="text-4xl mb-5 text-accent-400 font-medium">
@@ -32,6 +32,7 @@ export default function Cabins({ searchParams }) {
       </div>
       <Suspense key={filter} fallback={<Spinner />}>
         <CabinsList filter={filter} />
+        <ReservationReminder />
       </Suspense>
     </div>
   );
