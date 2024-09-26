@@ -39,14 +39,13 @@ export async function createBooking(bookingData, formData) {
 }
 
 export async function deleteBookings(bookingId) {
-  await new Promise((res) => setTimeout(res, 10000));
   const session = await auth();
   if (!session) throw new Error('You must be logged in');
 
   const guestBookings = await getBookings(session.user.guestId);
   const guestBookingIds = guestBookings.map((booking) => booking.id);
 
-  if (!guestBookingIds.includes(bookingId))
+  if (!guestBookingIds.includes(Number(bookingId)))
     throw new Error('You are not allowed to delete this booking');
 
   const { error } = await supabase
@@ -66,8 +65,8 @@ export async function updateReservation(formData) {
 
   const guestBookings = await getBookings(session.user.guestId);
   const guestBookingIds = guestBookings.map((booking) => booking.id);
-  const bookingId = Number(formData.get('bookingId'));
-  if (!guestBookingIds.includes(bookingId))
+  const bookingId = formData.get('bookingId');
+  if (!guestBookingIds.includes(Number(bookingId)))
     throw new Error('You are not allowed to edit this booking');
 
   const numGuests = Number(formData.get('numGuests'));
