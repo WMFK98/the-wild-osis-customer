@@ -15,9 +15,8 @@ const authConfig = {
     },
     async signIn({ user, account, profile }) {
       try {
-        console.log(user, account, profile);
         const exstingGuest = await getGuest(user.email);
-        console.log(user, account, profile);
+       
         if (!exstingGuest)
           await createGuest({ email: user.email, fullName: user.name });
         return true;
